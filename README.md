@@ -83,6 +83,26 @@ Unlike arrays, Linked-list has disadvantage of not being able to refer to interm
 
 By using above data structure, I tried to solving this advantage.
 
+*ALGORITHM*
+
+* Insertion / Deletion:
+
+Find the approximate position by looking over "Head->link" list.
+
+Start from one of "Head->link" list, find the exact position.
+
+After insertion or deletion , adjust "Head->link" list.
+
+
+* Print ranking of selected range(x,y):
+
+Find the approximate x position by looking over "Head->link" list.
+
+Start from one of "Head->link" list, find the exact x position.
+
+From x position, print node information as following the linked-list until arriving at y.
+
+
 ---
 
 **IDEA FOR AUTOMATIC PLAY**
@@ -102,10 +122,30 @@ By using above data structure, I tried to solving this advantage.
 
 **h array**: store the number of blocks for each col.
 
-**Example**
 
-<img src="https://user-images.githubusercontent.com/30820487/50975274-80800d80-1530-11e9-836f-5bd97088d439.png" width="60%" height="60%">
+
+**Example**
 
 <img src="https://user-images.githubusercontent.com/30820487/50975301-942b7400-1530-11e9-9dd7-4b20b13b2e0f.png" width="50%" height="50%">
 
 
+Without storing entire field, I can expect how the block stacks up by looking over "h" array and whether or not any row can be full by looking over "num" array.
+
+I tried to come up with node structure that uses memory efficiently.
+
+
+*ALGORITHM*
+
+Do deeper predictions only about the next situation that is judged to result in a high score.
+
+In this process, I did not build tree. Instead, by recursive function call, I anticipate the dipper prediction.
+
+I accept the potential if...
+
+* delete one or more lines
+
+* make blank less than or equal to that of the status of max score.
+
+* generate score that is higher than the previous max score
+
+* generate score that is equal to max score but create smaller number of blank spaces or lower max_h.
