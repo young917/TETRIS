@@ -6,9 +6,9 @@ TETRIS
 ---
 
 
-* Block falls Every seconds.
+* Block falls every seconds.
 
-* Rotate or Move following input direction.
+* Rotate or Move block following input direction.
 
 * Get score according to the area the bottom of the falling block touch.
 
