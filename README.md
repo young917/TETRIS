@@ -52,13 +52,13 @@ TETRIS
 ---
 
 
-<img src="https://user-images.githubusercontent.com/30820487/50970843-e0bd8200-1525-11e9-968d-970fad3c8272.png" width="40%" height="40%">
+<img src="https://user-images.githubusercontent.com/30820487/50970843-e0bd8200-1525-11e9-968d-970fad3c8272.png" width="30%" height="30%">
 
-<img src="https://user-images.githubusercontent.com/30820487/50970586-2168cb80-1525-11e9-80b7-c0167d99aa2e.png" width="40%" height="40%">
+<img src="https://user-images.githubusercontent.com/30820487/50970586-2168cb80-1525-11e9-80b7-c0167d99aa2e.png" width="50%" height="50%">
 
-<img src="https://user-images.githubusercontent.com/30820487/50970625-3b0a1300-1525-11e9-93e2-4091d08fd5d6.png" width="40%" height="40%">
+<img src="https://user-images.githubusercontent.com/30820487/50970625-3b0a1300-1525-11e9-93e2-4091d08fd5d6.png" width="50%" height="50%">
 
-<img src="https://user-images.githubusercontent.com/30820487/50970658-57a64b00-1525-11e9-965e-15b2255793ed.png" width="40%" height="40%">
+<img src="https://user-images.githubusercontent.com/30820487/50970658-57a64b00-1525-11e9-965e-15b2255793ed.png" width="50%" height="50%">
 
 <img src="https://user-images.githubusercontent.com/30820487/50970854-ed41da80-1525-11e9-98c1-ffbc6ec7cd56.png" width="40%" height="40%">
 
