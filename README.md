@@ -110,8 +110,6 @@ By using above data structure, I tried to solving this advantage.
 
 *DATA STRUCTURE*
 
-<img src="https://user-images.githubusercontent.com/30820487/50974468-a3112700-152e-11e9-9126-51c274371456.png" width="60%" height="60%">
-
 <img src="https://user-images.githubusercontent.com/30820487/50974578-e8cdef80-152e-11e9-8287-34aae11196e4.png" width="40%" height="40%">
 
 **lv**: depth of node in tree.
@@ -125,6 +123,8 @@ By using above data structure, I tried to solving this advantage.
 
 
 **Example**
+
+<img src="https://user-images.githubusercontent.com/30820487/50994142-d4a1e680-155e-11e9-83c5-26e5e643dd26.png" width="60%" height="60%">
 
 <img src="https://user-images.githubusercontent.com/30820487/50975301-942b7400-1530-11e9-9dd7-4b20b13b2e0f.png" width="50%" height="50%">
 
