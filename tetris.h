@@ -34,7 +34,6 @@
 typedef struct _RecNode{
 	int lv,score;
 	char f[HEIGHT][WIDTH];
-	int x,y,r;
 	struct _RecNode *c[CHILDREN_MAX];
 } RecNode;
 typedef struct recommend_node{
@@ -164,7 +163,8 @@ int score;			/* 점수가 저장*/
 int gameOver=0;			/* 게임이 종료되면 1로 setting된다.*/
 int timed_out;
 int autoplay;
-int make;
+time_t gamestart;
+double duration=0;
 int recommendR,recommendY,recommendX; // 추천 블럭 배치 정보. 차례대로 회전, Y 좌표, X 좌표
 RecNode* recRoot;
 
@@ -378,8 +378,8 @@ int recommend(RecNode *root);
  *	return	: none
  ***********************************************************/
 void del_recnode(RecNode *);
-void renew_recnode(RecNode *);
 void recommendedPlay();
 void Init_recommend();
-int recommendblock(recommend_node* t);
+void AddOutline();
+int modified_recommend(recommend_node* t);
 #endif

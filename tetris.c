@@ -18,6 +18,7 @@ int main(){
 		case MENU_RANK: rank();break;
 		case MENU_REC: {
 						   autoplay =1;
+						   gamestart=clock();
 						   recommendedPlay();
 						   break;
 					   }
@@ -43,11 +44,13 @@ void InitTetris(){
 	score=0;	
 	gameOver=0;
 	timed_out=0;
+	for(j=0;j<HEIGHT;j++)	
+		for(i=0;i<WIDTH;i++)
+			field[j][i]=0;
 	if(!autoplay){
 		recRoot=(RecNode*)malloc(sizeof(RecNode));
 		for(j=0;j<HEIGHT;j++)
 			for(i=0;i<WIDTH;i++){
-				field[j][i]=0;
 				recRoot->f[j][i]=0;
 			}
 		recRoot->lv=0;
@@ -317,6 +320,7 @@ void DrawBlockWithFeatures(int y, int x, int blockID, int blockRotate){
 void BlockDown(int sig){
 	// user code
 	int i,j;
+	time_t present;
 	RecNode *tmp;
 	if(CheckToMove(field,nextBlock[0],blockRotate,blockY+1,blockX)){
 		blockY++;
@@ -329,6 +333,14 @@ void BlockDown(int sig){
 		}
 		score+=AddBlockToField(field,nextBlock[0],blockRotate,blockY,blockX);
 		score+=DeleteLine(field);
+		for(i=0;i<(BLOCK_NUM-1);i++)
+			nextBlock[i]=nextBlock[i+1];		
+		nextBlock[BLOCK_NUM-1]=rand()%7;
+		blockY=-1;
+		blockX=(WIDTH)/2-2;
+		blockRotate=0;
+		DrawField();
+		PrintScore(score);
 		if(!autoplay){/*
 			for(i=0;i<CHILDREN_MAX;i++){
 				tmp=recRoot->c[i];
@@ -353,31 +365,24 @@ void BlockDown(int sig){
 			recRoot=(RecNode*)malloc(sizeof(RecNode));
 			recRoot->lv=0;
 			recRoot->score=0;
-			recRoot->x=blockX;
-			recRoot->y=blockY;
-			recRoot->r=blockRotate;
 			for(i=0;i<HEIGHT;i++)
 				for(j=0;j<WIDTH;j++)
 					recRoot->f[i][j] = field[i][j];
 			for(i=0;i<CHILDREN_MAX;i++)
 				recRoot->c[i]=NULL;
-		}
-		for(i=0;i<(BLOCK_NUM-1);i++)
-			nextBlock[i]=nextBlock[i+1];		
-		nextBlock[BLOCK_NUM-1]=rand()%7;
-		blockY=-1;
-		blockX=(WIDTH)/2-2;
-		blockRotate=0;
-		DrawField();
-		PrintScore(score);
-		if(!autoplay)
 			recommend(recRoot);
+		}
 		else
 			Init_recommend();
 
 		DrawBlock(recommendY,recommendX,nextBlock[0],recommendR,'R');
 		DrawBlockWithFeatures(blockY,blockX,nextBlock[0],blockRotate);
 		DrawNextBlock(nextBlock);
+	}
+	if(autoplay){
+		present=clock();
+		move(16,WIDTH+11);
+		printw("%.6lf sec",(double)(present-gamestart)/(double)CLOCKS_PER_SEC);
 	}
 	timed_out=0;
 }
@@ -796,9 +801,8 @@ int recommend(RecNode *root){
 	int max=0; // 미리 보이는 블럭의 추천 배치까지 고려했을 때 얻을 수 있는 최대 점수
 	int block_r,block_y,block_x,temp_score,idx=0;
 	int i,j,r,x,y,lv,tmp;
-	RecNode *new_node;
-	lv=root->lv+1;
-	if(root->c[0] != NULL){
+
+	/*if(root->c[0] != NULL){
 		for(i=0;i<CHILDREN_MAX;i++){
 			if(root->c[i] == NULL)
 				break;
@@ -810,49 +814,46 @@ int recommend(RecNode *root){
 				block_y=root->c[i]->y;
 			}
 		}
-	}
-	else{
-		for(r=0;r<4;r++){
-			if(r == 1 && nextBlock[lv-1] == 4)
-				break;
-			else if(r == 2){
-				tmp=nextBlock[lv-1];
-				if(tmp == 0 || tmp == 5 || tmp == 6)
-					break;
-			}
-			for(x=-2;x<WIDTH;x++){
-				y=-1;
-				while(CheckToMove(root->f,nextBlock[lv-1],r,y,x))
-					y++;
-				if(y == -1)
-					continue;
+	}*/
 
+	RecNode *new_node;
+	lv=root->lv+1;
+	for(r=0;r<4;r++){
+		if(r == 1 && nextBlock[lv-1] == 4)
+			break;
+		else if(r == 2){
+			tmp=nextBlock[lv-1];
+			if(tmp == 0 || tmp == 5 || tmp == 6)
+				break;
+		}
+		for(x=-2;x<WIDTH;x++){
+			y=-1;
+			while(CheckToMove(root->f,nextBlock[lv-1],r,y,x))
+				y++;
+			if(y == -1)
+				continue;
 				y--;
-				new_node=(RecNode*)malloc(sizeof(RecNode));
-				new_node->lv=lv;
-				new_node->score=root->score;
-				for(i=0;i<HEIGHT;i++)
-					for(j=0;j<WIDTH;j++)
-						new_node->f[i][j]=root->f[i][j];
-				for(i=0;i<CHILDREN_MAX;i++)
-					new_node->c[i]=NULL;
-				new_node->score+=AddBlockToField(new_node->f,nextBlock[lv-1],r,y,x);
-				new_node->score+=DeleteLine(new_node->f);
-				new_node->x=x;
-				new_node->y=y;
-				new_node->r=r;
-				root->c[idx++]=new_node;
-				if(new_node->lv < BLOCK_NUM){
-					temp_score=recommend(new_node);
-				}
-				else
-					temp_score=new_node->score;
-				if(max<temp_score){
-					max=temp_score;
-					block_r=r;
-					block_x=x;
-					block_y=y;
-				}
+			new_node=(RecNode*)malloc(sizeof(RecNode));
+			new_node->lv=lv;
+			new_node->score=root->score;
+			for(i=0;i<HEIGHT;i++)
+				for(j=0;j<WIDTH;j++)
+					new_node->f[i][j]=root->f[i][j];
+			for(i=0;i<CHILDREN_MAX;i++)
+				new_node->c[i]=NULL;
+			new_node->score+=AddBlockToField(new_node->f,nextBlock[lv-1],r,y,x);
+			new_node->score+=DeleteLine(new_node->f);
+			root->c[idx++]=new_node;
+			if(new_node->lv < BLOCK_NUM){
+				temp_score=recommend(new_node);
+			}
+			else
+				temp_score=new_node->score;
+			if(max<temp_score){
+				max=temp_score;
+				block_r=r;
+				block_x=x;
+				block_y=y;
 			}
 		}
 	}
@@ -898,7 +899,9 @@ void recommendedPlay(){
 	clear();
 	act.sa_handler = BlockDown;
 	sigaction(SIGALRM,&act,&oact);
+	duration=0;
 	InitTetris();
+	AddOutline();
 	do{
 		if(timed_out==0){
 			alarm(1);
@@ -921,6 +924,7 @@ void recommendedPlay(){
 			ProcessCommand(KEY_LEFT);
 		else if(recommendX>blockX)
 			ProcessCommand(KEY_RIGHT);
+		
 	}while(!gameOver);
 
 	alarm(0);
@@ -936,7 +940,10 @@ void Init_recommend(){
 	int r,c,height,max_r;
 	int i;
 	int flag;
-	make=1;
+	double temp;
+	long size;
+	time_t start,end;
+	start=clock();
 	recommend_node *root;
 	root=(recommend_node*)calloc(1,sizeof(recommend_node));
 
@@ -979,11 +986,19 @@ void Init_recommend(){
 	}
 	root->lv=0;
 	root->score=0;
-	recommendblock(root);
+	modified_recommend(root);
+	size=sizeof(root);
+	move(21,WIDTH+11);
+	printw("%ld bytes",size);
 	free(root);
 	root=NULL;
+	end=clock();
+	temp=((double)(end-start)/(double)CLOCKS_PER_SEC);
+	duration+=temp;
+	move(16,WIDTH+29);
+	printw("%.6lf sec",duration);
 }
-int recommendblock(recommend_node* t){
+int modified_recommend(recommend_node* t){
 	int Max=0,Max_H=22,Max_blank=2;
 	int x,y,r,lv,id;
 	int r1,c1,r2,c2,blank;
@@ -1123,21 +1138,20 @@ int recommendblock(recommend_node* t){
 					line++;
 					temp=HEIGHT-1-i;
 					for(j=0;j<WIDTH;j++){
-						if(New_node->h[j] >= temp)
-							New_node->h[j]-=1;
+						if(New_node->h[j] <= temp)
+							New_node->h[j] +=1;
 					}
 					for(j=i+1;j<height;j++)
 						New_node->num[j-1]=New_node->num[j];
 					New_node->num[(height-1)]=0;
 					height--;
-					i++;
 				}
 			}
 			New_node->score+=(line*line*100)+(bottom*10);
 			New_node->max_h=height;
 			if(line>0 || blank<=1){
 				if(lv<BLOCK_NUM)
-					temp=recommendblock(New_node);
+					temp=modified_recommend(New_node);
 				else
 					temp=New_node->score;
 				if(temp>Max){
@@ -1168,4 +1182,15 @@ int recommendblock(recommend_node* t){
 		recommendR=result_r;
 	}
 	return Max;
+}
+void AddOutline(){
+	move(14,WIDTH+10);
+	printw("time");
+	DrawBox(15,WIDTH+10,1,15);
+	move(14, WIDTH+28);
+	printw("time(t)");
+	DrawBox(15,WIDTH+28,1,15);
+	move(19,WIDTH+10);
+	printw("space(t)");
+	DrawBox(20,WIDTH+10,1,15);
 }
