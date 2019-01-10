@@ -41,3 +41,27 @@ TETRIS
 
 * Automatic play mode that chooses position it expects to lead to the highest score.
 
+
+
+**IMPLEMENTATION**
+---
+
+
+![image](https://user-images.githubusercontent.com/30820487/50970503-e2d31100-1524-11e9-82f1-034e11109cbc.png)
+
+![image](https://user-images.githubusercontent.com/30820487/50970586-2168cb80-1525-11e9-80b7-c0167d99aa2e.png)
+
+![image](https://user-images.githubusercontent.com/30820487/50970625-3b0a1300-1525-11e9-93e2-4091d08fd5d6.png)
+
+![image](https://user-images.githubusercontent.com/30820487/50970658-57a64b00-1525-11e9-965e-15b2255793ed.png)
+
+![image](https://user-images.githubusercontent.com/30820487/50970688-71479280-1525-11e9-9492-366ee9f2dac8.png)
+
+
+**IDEA FOR RANKING SYSTEM**
+---
+
+*DATA STRUCTURE*
+
+
+
