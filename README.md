@@ -52,7 +52,7 @@ TETRIS
 ---
 
 
-![image](https://user-images.githubusercontent.com/30820487/50970843-e0bd8200-1525-11e9-968d-970fad3c8272.png){: width="70%" height="70%"}
+<img src="https://user-images.githubusercontent.com/30820487/50970843-e0bd8200-1525-11e9-968d-970fad3c8272.png" width="70%" height="70%">
 
 ![image](https://user-images.githubusercontent.com/30820487/50970586-2168cb80-1525-11e9-80b7-c0167d99aa2e.png)
 
