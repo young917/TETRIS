@@ -87,20 +87,20 @@ By using above data structure, I tried to solving this advantage.
 
 * Insertion / Deletion:
 
- * Find the approximate position by looking over "Head->link" list.
+  * Find the approximate position by looking over "Head->link" list.
 
- * Start from one of "Head->link" list, find the exact position.
+  * Start from one of "Head->link" list, find the exact position.
 
- * After insertion or deletion , adjust "Head->link" list.
+  * After insertion or deletion , adjust "Head->link" list.
 
 
 * Print ranking of selected range(x,y):
 
- * Find the approximate x position by looking over "Head->link" list.
+  * Find the approximate x position by looking over "Head->link" list.
 
- * Start from one of "Head->link" list, find the exact x position.
+  * Start from one of "Head->link" list, find the exact x position.
 
- * From x position, print node information as following the linked-list until arriving at y.
+  * From x position, print node information as following the linked-list until arriving at y.
 
 
 ---
@@ -142,10 +142,10 @@ I tried to come up with node structure that uses memory efficiently.
 
 * I accept the potential if...
 
- * delete one or more lines
+  * delete one or more lines
 
- * make blank less than or equal to that of the status of max score.
+  * make blank less than or equal to that of the status of max score.
 
- * generate score that is higher than the previous max score
+  * generate score that is higher than the previous max score
 
- * generate score that is equal to max score but create smaller number of blank spaces or lower max_h.
+  * generate score that is equal to max score but create smaller number of blank spaces or lower max_h.
