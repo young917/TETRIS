@@ -1,8 +1,10 @@
 TETRIS
 ===
 
-1. PLAY TETRIS
+
+**1. PLAY TETRIS**
 ---
+
 
 * Block falls Every seconds.
 
@@ -13,8 +15,10 @@ TETRIS
 * When the row of field fill, delete this row and get score. 
 
 
-2. RANKING SYSTEM
+
+**2. RANKING SYSTEM**
 ---
+
 
 * Build data structure by reading rank.txt file.
 
@@ -30,7 +34,7 @@ TETRIS
 
 
 
-3. RECOMMENDED PLAY
+**3. RECOMMENDED PLAY**
 ---
 
 * Recommend position by using tree.
