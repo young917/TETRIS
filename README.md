@@ -52,7 +52,7 @@ TETRIS
 ---
 
 
-![image](https://user-images.githubusercontent.com/30820487/50970503-e2d31100-1524-11e9-82f1-034e11109cbc.png)
+![image](https://user-images.githubusercontent.com/30820487/50970843-e0bd8200-1525-11e9-968d-970fad3c8272.png)
 
 ![image](https://user-images.githubusercontent.com/30820487/50970586-2168cb80-1525-11e9-80b7-c0167d99aa2e.png)
 
@@ -60,7 +60,7 @@ TETRIS
 
 ![image](https://user-images.githubusercontent.com/30820487/50970658-57a64b00-1525-11e9-965e-15b2255793ed.png)
 
-![image](https://user-images.githubusercontent.com/30820487/50970688-71479280-1525-11e9-9492-366ee9f2dac8.png)
+![image](https://user-images.githubusercontent.com/30820487/50970854-ed41da80-1525-11e9-98c1-ffbc6ec7cd56.png)
 
 
 **IDEA FOR RANKING SYSTEM**
