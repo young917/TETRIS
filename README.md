@@ -83,10 +83,6 @@ Unlike arrays, Linked-list has disadvantage of not being able to refer to interm
 
 By using above data structure, I tried to solving this advantage.
 
-
-*ALGORITHM*
-
-
 ---
 
 **IDEA FOR AUTOMATIC PLAY**
@@ -110,10 +106,6 @@ By using above data structure, I tried to solving this advantage.
 
 <img src="https://user-images.githubusercontent.com/30820487/50975274-80800d80-1530-11e9-836f-5bd97088d439.png" width="60%" height="60%">
 
-<img src="https://user-images.githubusercontent.com/30820487/50975301-942b7400-1530-11e9-9dd7-4b20b13b2e0f.png" width="60%" height="60%">
-
-
-*ALGORITHM*
-
+<img src="https://user-images.githubusercontent.com/30820487/50975301-942b7400-1530-11e9-9dd7-4b20b13b2e0f.png" width="50%" height="50%">
 
 
