@@ -1,11 +1,13 @@
 TETRIS
 ===
 
+---
 
 **TERM**
 ---
 2018.05.06 ~ 2018.06.03
 
+---
 
 **1. PLAY TETRIS**
 ---
@@ -46,7 +48,7 @@ TETRIS
 
 * Automatic play mode that chooses position it expects to lead to the highest score.
 
-
+---
 
 **IMPLEMENTATION**
 ---
@@ -62,12 +64,56 @@ TETRIS
 
 <img src="https://user-images.githubusercontent.com/30820487/50970854-ed41da80-1525-11e9-98c1-ffbc6ec7cd56.png" width="40%" height="40%">
 
-
+---
 
 **IDEA FOR RANKING SYSTEM**
 ---
 
 *DATA STRUCTURE*
+
+<img src="https://user-images.githubusercontent.com/30820487/50973733-eec2d100-152c-11e9-93fb-e9a00df6b868.png" width="40%" height="40%">
+
+"search" is defined constant.
+
+<img src="https://user-images.githubusercontent.com/30820487/50973835-334e6c80-152d-11e9-8b47-8ca72949670c.png" width="50%" height="50%">
+
+Wine circle sign indicates the node that is stored in "Head"->link.
+
+Unlike arrays, Linked-list has disadvantage of not being able to refer to intermediate node.
+
+By using above data structure, I tried to solving this advantage.
+
+
+*ALGORITHM*
+
+
+---
+
+**IDEA FOR AUTOMATIC PLAY**
+---
+
+*DATA STRUCTURE*
+
+<img src="https://user-images.githubusercontent.com/30820487/50974468-a3112700-152e-11e9-9126-51c274371456.png" width="60%" height="60%">
+
+<img src="https://user-images.githubusercontent.com/30820487/50974578-e8cdef80-152e-11e9-8287-34aae11196e4.png" width="40%" height="40%">
+
+**lv**: depth of node in tree.
+
+**max_h**: maximum height of the blocks.
+
+**num array**: store the number of blocks for each height.
+
+**h array**: store the number of blocks for each col.
+
+**Example**
+
+<img src="https://user-images.githubusercontent.com/30820487/50975274-80800d80-1530-11e9-836f-5bd97088d439.png" width="60%" height="60%">
+
+<img src="https://user-images.githubusercontent.com/30820487/50975301-942b7400-1530-11e9-9dd7-4b20b13b2e0f.png" width="60%" height="60%">
+
+
+*ALGORITHM*
 
 
 
